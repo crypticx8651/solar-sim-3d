@@ -35,6 +35,6 @@ This is a high-fidelity visualization using Keplerian elements, not a full n-bod
 
 ---
 
-Made by Joel 🚀 <crypticx8651>
+Made by Joel 🚀/ crypticx8651
 
 ENJOY :)
