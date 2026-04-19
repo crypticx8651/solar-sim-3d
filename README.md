@@ -38,3 +38,17 @@ This is a high-fidelity visualization using Keplerian elements, not a full n-bod
 Made by Joel 🚀/ crypticx8651
 
 ENJOY :)
+
+
+## 📥 How to Run the Simulation
+
+1. Download the repository as a ZIP file
+2. Extract the ZIP file
+3. Open `index.html` in your browser (double-click or right-click → "Open with browser")
+
+You can also explore the source code and modify it to experiment with the simulation.
+
+
+
+
+You can download the raw zip file and extract it.double click on the index.html or right click and view it in browser to enjoy the simulation. You can also view the code and make changes to it.
