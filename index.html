@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System Simulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+  </div>
+
+  <main class="layout">
+    <section class="viewport-panel">
+      <header class="viewport-header">
+        <div>
+          <h1>Solar Simulation</h1>
+          <p>Interactive orbital mechanics with realistic planetary data and live camera navigation.</p>
+        </div>
+        <div class="clock-card">
+          <span>Simulation Date (UTC)</span>
+          <strong id="simClock">--</strong>
+        </div>
+      </header>
+
+      <div class="scene-frame">
+        <div id="sceneContainer" aria-label="3D solar system scene"></div>
+        <div id="labelLayer" aria-hidden="true"></div>
+      </div>
+
+      <footer class="viewport-footer">
+        <p>Drag to pan, scroll to zoom, and click a body for detailed data.</p>
+      </footer>
+    </section>
+
+    <aside class="control-panel">
+      <section class="panel-section">
+        <h2>Simulation Control</h2>
+        <label class="control-line">
+          <span>Time Speed (sim days / real second)</span>
+          <input id="timeScale" type="range" min="0.05" max="300" step="0.05" value="20">
+          <strong id="timeScaleValue">5.00</strong>
+        </label>
+
+        <div class="button-row">
+          <button id="pauseBtn" type="button">Pause</button>
+          <button id="resetViewBtn" type="button">Reset View</button>
+          <button id="jumpNowBtn" type="button">Now</button>
+        </div>
+
+        <label class="control-line">
+          <span>Jump To Date (UTC)</span>
+          <input id="jumpDateInput" type="datetime-local">
+        </label>
+        <button id="jumpDateBtn" type="button">Jump</button>
+      </section>
+
+      <section class="panel-section">
+        <h2>Scene Options</h2>
+        <label class="control-line">
+          <span>Focus Object</span>
+          <select id="focusSelect"></select>
+        </label>
+
+        <label class="toggle-line">
+          <input id="showOrbits" type="checkbox" checked>
+          <span>Show orbit paths</span>
+        </label>
+        <label class="toggle-line">
+          <input id="showLabels" type="checkbox" checked>
+          <span>Show labels</span>
+        </label>
+        <label class="toggle-line">
+          <input id="showMoons" type="checkbox" checked>
+          <span>Show major moons</span>
+        </label>
+        <label class="toggle-line">
+          <input id="showDwarf" type="checkbox" checked>
+          <span>Show dwarf planets</span>
+        </label>
+
+        <label class="control-line">
+          <span>Distance Compression</span>
+          <input id="distanceExponent" type="range" min="0.45" max="1" step="0.01" value="0.62">
+          <strong id="distanceExponentValue">0.62</strong>
+        </label>
+      </section>
+
+      <section class="panel-section info-panel">
+        <h2 id="infoTitle">Sun</h2>
+        <p id="infoSubtitle">G2V main-sequence star at the center of the Solar System.</p>
+        <ul id="infoList"></ul>
+      </section>
+
+      <section class="panel-section note-panel">
+        <h2>Model Notes</h2>
+        <p>
+          Planetary trajectories use Keplerian elements (J2000-like reference values), with orbital and rotation
+          periods scaled in real-time. This is a high-fidelity visualization, but not a full n-body relativistic solver.
+        </p>
+      </section>
+    </aside>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
+
+
+
